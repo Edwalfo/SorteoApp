@@ -1,0 +1,85 @@
+<app-navbar-admin></app-navbar-admin>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <app-sidebar-admin></app-sidebar-admin>
+    </div>
+    <div id="layoutSidenav_content">
+        <main>
+
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Salas</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Salas</li>
+                </ol>
+
+                <div class="row p-5">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+
+                                    <span id="card_title">
+
+                                    </span>
+
+                                    <div class="float-right">
+                                        <a routerLink="/admin/crear-sala" class="btn btn-success btn-sm float-right"
+                                            data-placement="left">
+                                            Crear
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <h2 class="titulo text-center">Lista de salas</h2>
+                                <div class="table-responsive">
+                                    <table  class="table table-striped table-hover table-borderless mt-5">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">N°</th>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Costo</th>
+                                                <th scope="col">Fecha</th>
+                                                <th scope="col">Hora</th>
+                                                <th scope="col">Premio</th>
+                                                <th scope="col">Estado</th>
+                                                <th scope="col">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody *ngIf="salas.length>0" class="table-group-divider">
+                                            <tr *ngFor="let sala of salas let i=index">
+                                                <th scope="row">{{i+1}}</th>
+                                                <td>{{sala.salaNombre}}</td>
+                                                <td>{{sala.costo|currency}}</td>
+                                                <td>{{sala.fecha}}</td>
+                                                <td>{{sala.hora}}</td>
+                                                <td>{{sala.premio|currency}}</td>
+                                                <td>{{sala.estado}}</td>
+                                                <td>
+                                                    <i [routerLink]="['/admin/edictar-sala/',sala.id]"
+                                                        class="fa-solid fa-pen-to-square text-primary"></i>
+                                                    &nbsp;
+                                                    <i class="fa-solid fa-trash text-danger" (click)="eliminarSala(sala.id)"></i>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <h5  class="text-center text-muted mt-5" *ngIf="salas.length==0">No hay datos para mostrar</h5>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+        <app-footer-admin></app-footer-admin>
+
+    </div>
+</div>

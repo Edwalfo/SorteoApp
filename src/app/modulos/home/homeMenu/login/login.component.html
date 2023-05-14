@@ -1,0 +1,46 @@
+<div class="contenido">
+    <app-navbar-home></app-navbar-home>
+<section class="py-5">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-5">
+                <div class="card border-dark rounded-2">
+                    <div class="row g-0">
+                        <div class="card-body p-4 p-lg-5 text-black">
+                            <form [formGroup]="iniciarSesion" (ngSubmit)="login()">
+                                <h3 class="fw-normal mb-3 pb-3 text-center">Inicia sesi&oacute;n en <br>sorteos
+                                </h3>
+
+                                <div class="form-outline mb-4">
+                                    <input type="email" formControlName="email" class="form-control form-control-lg" />
+                                    <label class="form-label" for="email">Email</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="password" formControlName="password" class="form-control form-control-lg" />
+                                    <label class="form-label" for="password">Contraseña</label>
+                                </div>
+
+                                <div class="pt-1 mb-4 d-grid gap-2">
+                                    <button class="btn btn-dark btn-lg btn-block" type="submit">Iniciar sesi&oacute;n</button>
+                                </div>
+
+            
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+<app-footer-home></app-footer-home>
+
+</div>
+
+
+

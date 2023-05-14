@@ -1,0 +1,71 @@
+<app-navbar-admin></app-navbar-admin>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <app-sidebar-admin></app-sidebar-admin>
+    </div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">{{titulo}} sala</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a routerLink="/admin/listar-salas">Salas</a></li>
+                    <li class="breadcrumb-item active">{{titulo}} sala</li>
+                </ol>
+                <div class="row p-5 d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card card-default">
+                            <div class="card-header">
+                                <span class="card-title">{{titulo}} sorteo</span>
+                            </div>
+                            <div class="card-body">
+                                <div *ngIf="loading" class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <span *ngIf="submitted && crearSala.invalid" class="text-danger">Todos los campos son
+                                    obligatorios</span>
+                                <form class="mt-3 p-3" [formGroup]="crearSala" (ngSubmit)="agregarEdictarSala()">
+                                    <div class="mb-3">
+                                        <label for="salaNombre" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" formControlName="salaNombre"
+                                            placeholder="Nombre">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="costo" class="form-label">Costo</label>
+                                        <input type="number" class="form-control" formControlName="costo"
+                                            placeholder="Costo">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="fecha" class="form-label">Fecha</label>
+                                        <input type="date" class="form-control" formControlName="fecha">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="hora" class="form-label">Hora</label>
+                                        <input type="time" class="form-control" formControlName="hora">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="premio" class="form-label">Premio</label>
+                                        <input type="number" class="form-control" formControlName="premio"
+                                            placeholder="Premio">
+                                    </div>
+                                    <div class="mb-3 d-flex">
+
+                                        <button type="button" class="btn btn-secondary btn-lg"
+                                            routerLink="/admin/listar-salas">Volver</button>
+                                        &nbsp;
+                                        <button type="submit" [disabled]="crearSala.invalid" class="btn btn-primary btn-lg">Enviar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+        <app-footer-admin></app-footer-admin>
+    </div>
+</div>

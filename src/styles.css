@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
+.fa-solid {
+    cursor: pointer;
+}
+
+
+
+.contenido{
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    background-color: #9A616D;
+  }
+

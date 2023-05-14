@@ -1,0 +1,40 @@
+<div class="text-center mb-5">
+    <h2 class="display-4 fw-bolder ">Lista salas</h2>
+</div>
+
+<div class="row d-flex justify-content-center align-items-center h-100 text-center text-warning"
+    *ngIf="salas.length==0">
+    <h3>No hay sala en este momento
+    </h3>
+    <h5 class="text-dark">Vuelva mas tarde</h5>
+</div>
+
+<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" *ngIf="salas.length>0">
+    <div class="col mb-5" *ngFor="let sala of salas">
+        <div class="card h-100 border-dark">
+            <!-- Sale badge-->
+            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">{{contarParticipantes(sala.id)}}/50</div>
+
+            <!-- Product details-->
+            <div class="card-body p-4">
+                <div class="text-center">
+                    <!-- Product name-->
+                    <h5 class="fw-bolder">{{sala.salaNombre}}</h5>
+
+                    <!-- Product price-->
+                    <span class="">{{sala.costo|currency}}</span>
+                </div>
+            </div>
+            <!-- Product actions-->
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn  btn-outline-success mt-auto rounded-1" type="button" (click)="agregarParticipante(sala.id)">Ingresar</button>
+                    <a class="btn  btn-outline-primary mt-auto rounded-1" [routerLink]="['/Sala/',sala.id]">Ver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
